@@ -34,6 +34,8 @@ module.exports = {
     contentBase: commonPaths.outputPath,
     compress: true,
     hot: true,
+    publicPath: '/',
+    historyApiFallback: true,
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
 };

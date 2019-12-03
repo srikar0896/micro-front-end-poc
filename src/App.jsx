@@ -1,9 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import { SecondaryHeader } from 'ui-infra';
+import { createBrowserHistory } from 'history';
 import RoutesContainer from './RoutesContainer';
 
-console.log('router', Router);
+const standAloneAppHistory = createBrowserHistory();
+
+console.log(standAloneAppHistory);
+
 // eslint-disable-next-line no-lone-blocks
 
 const secondaryHeaderData = (history, baseRoute) => ({
@@ -14,7 +18,7 @@ const secondaryHeaderData = (history, baseRoute) => ({
       },
       options: [
         {
-          key: `${baseRoute}/`,
+          key: `${baseRoute}/dps`,
           value: 'Dispatch Plans',
         },
         {
@@ -28,18 +32,21 @@ const secondaryHeaderData = (history, baseRoute) => ({
 
 const getSecondaryHeader = (history, baseRoute) => {
   const template = (
-    <SecondaryHeader data={() => secondaryHeaderData(history, baseRoute)} />
+    <SecondaryHeader data={secondaryHeaderData(history, baseRoute)} />
   );
   console.log('Template', template);
   return template;
 };
 
-export default (history, baseRoute) => {
+export default (history = standAloneAppHistory, baseRoute = '') => {
   console.log('GET APP');
+  console.log({ standAloneAppHistory });
   return (
-    <Router history={history} basename={baseRoute}>
+    <Router history={history}>
       {getSecondaryHeader(history, baseRoute)}
-      <RoutesContainer />
+      <div style={{ padding: '1rem 2.5rem' }}>
+        <RoutesContainer baseRoute={baseRoute} />
+      </div>
     </Router>
   );
 };

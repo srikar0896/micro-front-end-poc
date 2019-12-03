@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { ListCard, Typography } from 'ui-infra';
 
 const { Text } = Typography;
 
-const DispatchPlans = ({ ids }) => {
+const DispatchPlans = () => {
+  const ids = [1, 2, 3];
   return (
     <div>
       <Text strong>DCMS</Text>
@@ -118,11 +118,6 @@ const DispatchPlans = ({ ids }) => {
       ))}
     </div>
   );
-};
-
-DispatchPlans.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  ids: PropTypes.array.isRequired,
 };
 
 export default DispatchPlans;

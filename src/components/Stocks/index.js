@@ -4,7 +4,8 @@ import { Typography } from 'ui-infra';
 const { Text } = Typography;
 
 const Stocks = () => {
-  return <Text strong>Stocks</Text>;
+  // eslint-disable-next-line react/jsx-filename-extension
+  return <Text>Stocks</Text>;
 };
 
 export default Stocks;

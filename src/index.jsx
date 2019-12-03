@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import getApp from './App.jsx';
 
-// const DEV_MODE = true;
+const DEV_MODE = false;
 
 console.log('Awesome', Link);
 
@@ -15,6 +15,6 @@ export const initDCMS = (history, baseRoute) => {
   return appToRender;
 };
 
-// if (DEV_MODE) {
-//   ReactDOM.render(getApp(), document.getElementById('app'));
-// }
+if (DEV_MODE) {
+  ReactDOM.render(getApp(), document.getElementById('app'));
+}
